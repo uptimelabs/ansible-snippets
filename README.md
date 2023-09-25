@@ -1,2 +1,3 @@
 # ansible-snippets
-Incomplete Ansible inventories and playbooks
+
+Unvollständige Ansible-Inventare und Playbooks
