@@ -1,0 +1,14 @@
+---
+plugin: hcloud
+token:
+
+label_selector: type=frontend
+
+groups:
+  webserver: "'webserver' in (labels|list)"
+  cache: "'cache' in (labels|list)"
+  database: "'database' in (labels|list)"
+
+compose:
+  ansible_port: 22
+  ansible_user: root
