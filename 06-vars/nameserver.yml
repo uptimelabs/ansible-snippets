@@ -1,0 +1,4 @@
+---
+nameserver:
+  cloudflare: 1.1.1.1
+  google: 8.8.8.8

@@ -1,0 +1,9 @@
+
+- name: register uptime output
+  shell: uptime
+  register: uptime
+
+- name: write uptime output
+  copy:
+    content: "{{ uptime.stdout }}"
+    dest: "/etc/uptime"
