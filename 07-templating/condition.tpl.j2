@@ -1,0 +1,7 @@
+{% if inventory_hostname == "web01" %}
+1. Webserver
+{% elif inventory_hostname == "web02" %}
+2. Webserver
+{% else %}
+Other Webserver
+{% endif %}
