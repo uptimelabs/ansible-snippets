@@ -1,0 +1,11 @@
+---
+services:
+  redis:
+    image: docker.io/library/redis:{{ version.redis.tag }}
+    container_name: docker-redis
+    hostname: docker-redis
+    restart: always
+    ports:
+      - 127.0.0.1:6379:6379
+    volumes:
+      - /srv/docker/redis/storage:/data:rw
