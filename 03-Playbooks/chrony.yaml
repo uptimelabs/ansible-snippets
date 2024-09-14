@@ -1,5 +1,6 @@
 ---
-- name: Deploy chrony
+
+- name: Install chrony on all servers
   hosts: all
   tasks:
     - name: Package
