@@ -1,0 +1,10 @@
+---
+
+- name: Register uptime command output
+  shell: uptime
+  register: result_uptime
+
+- name: Write uptime output to temp file
+  copy:
+    content: "{{ result_uptime.stdout }}"
+    dest: "/tmp/uptime"
