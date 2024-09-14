@@ -1,12 +1,12 @@
 ---
-plugin: hcloud
-token:
 
-label_selector: type=frontend
+plugin: hetzner.hcloud.hcloud
+token: < --- API-Key --- >
+
+label_selector: app=exampleapp
 
 groups:
   webserver: "'webserver' in (labels|list)"
-  cache: "'cache' in (labels|list)"
   database: "'database' in (labels|list)"
 
 compose:
