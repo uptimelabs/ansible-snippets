@@ -1,0 +1,38 @@
+{
+  "all": {
+    "children": [
+      "webapp",
+      "ansible"
+    ]
+  },
+  "ansible": {
+    "hosts": [
+      "ansible01"
+    ]
+  },
+  "cache": {
+    "hosts": [
+      "cache01",
+      "cache02"
+    ]
+  },
+  "database": {
+    "hosts": [
+      "db01"
+    ]
+  },
+  "webapp": {
+    "children": [
+      "webserver",
+      "database",
+      "cache"
+    ]
+  },
+  "webserver": {
+    "hosts": [
+      "web01",
+      "web02",
+      "web03"
+    ]
+  }
+}
