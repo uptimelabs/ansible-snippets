@@ -1,0 +1,31 @@
+---
+
+interfaces:
+  - name: enp3s0
+    ipv4:
+      address:
+        - ip: 192.168.44.12
+          mask: 24
+          gateway: 192.168.44.1
+        - ip: 192.168.44.101
+    ipv6:
+      address:
+        - ip: 2001:cc:1001:44::23
+          mask: 64
+          gateway: 2001:cc:1001:44::1
+
+  - name: enp4s0
+    ipv4:
+      address:
+        - ip: dhcp
+
+  - name: wlp1s0
+    ipv4:
+      wpa-ssid: Guest-Wifi
+      wpa-psk: abc123
+      address:
+        - ip: dhcp
+
+nameserver:
+  - 2001:cc:1001:44::1
+  - 192.168.44.1
