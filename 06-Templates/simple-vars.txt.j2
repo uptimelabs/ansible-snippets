@@ -1,0 +1,4 @@
+# /etc/resolv.conf
+
+nameserver {{ nameserver["google"] }}
+nameserver {{ nameserver.cloudflare }}

@@ -1,0 +1,7 @@
+# /etc/resolv.conf
+
+{% for nameserver in nameservers if not nameserver.disabled %}
+nameserver {{ nameserver.ip }}
+{% else %}
+nameserver 8.8.8.8
+{% endfor %}

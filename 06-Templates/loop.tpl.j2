@@ -1,7 +1,0 @@
-# /etc/resolv.conf
-
-{% for ip in nameserver %}
-nameserver {{ ip }}
-{% else %}
-nameserver 1.1.1.1
-{% endfor %}

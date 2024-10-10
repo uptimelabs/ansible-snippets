@@ -1,0 +1,5 @@
+# /etc/resolv.conf
+
+{% for ip in nameservers %}
+nameserver {{ ip }}
+{% endfor %}
