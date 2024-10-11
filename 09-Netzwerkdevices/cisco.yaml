@@ -1,0 +1,18 @@
+---
+
+- name: Use Ansible on a Cisco Switch
+  hosts: cisco
+  tasks:
+    - name: Ping!
+      cisco.ios.ios_ping:
+        dest: 10.9.23.45
+
+    - name: Get Interfaces
+      cisco.ios.ios_command:
+        commands: 
+          - show ip interface brief
+      register: ios_interfaces
+
+    - name: Print Interfaces
+      debug:
+        var: ios_interfaces.stdout_lines
