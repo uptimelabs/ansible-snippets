@@ -1,0 +1,13 @@
+---
+
+- name: "NGINX: Packages"
+  ansible.builtin.apt:
+    update_cache: yes
+    name: nginx
+    state: present
+
+- name: "NGINX: Start Service"
+  ansible.builtin.systemd:
+    state: started
+    name: nginx
+    enabled: true

@@ -1,0 +1,8 @@
+---
+
+- name: Install Webservers
+  hosts: all
+  tasks:
+    - name: NGINX
+      roles:
+        - nginx

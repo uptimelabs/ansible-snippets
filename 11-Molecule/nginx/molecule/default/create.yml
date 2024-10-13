@@ -1,0 +1,30 @@
+---
+
+- name: Create
+  hosts: localhost
+  connection: local
+  serial: 1
+  tasks:
+    - name: Create Servers
+      hetzner.hcloud.server:
+        name: "{{ item.name }}"
+        state: present
+        server_type: cx22
+        image: "{{ item.image }}"
+        location: nbg1
+        ssh_keys:
+          - "< --- SSH Key --- >"
+        api_token: "< --- API-Key --- >"
+      register: create_server
+      loop: "{{ molecule_yml.platforms }}"
+
+    - name: Generate molecule-ssh_config
+      template:
+        src: molecule-ssh_config.j2
+        dest: molecule-ssh_config
+      vars:
+        hosts: "{{ create_server.results }}"
+
+    - name: Pause
+      pause:
+        seconds: 30

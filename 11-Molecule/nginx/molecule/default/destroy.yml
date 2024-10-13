@@ -1,0 +1,12 @@
+---
+
+- name: Destroy
+  hosts: all
+  connection: local
+  tasks:
+    - name: Delete Servers
+      hetzner.hcloud.server:
+        name: "{{ item.name }}"
+        state: absent
+        api_token: "< --- API-Key --- >"
+      loop: "{{ molecule_yml.platforms }}"

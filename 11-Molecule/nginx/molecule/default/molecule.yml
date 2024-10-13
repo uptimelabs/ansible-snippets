@@ -1,0 +1,27 @@
+---
+
+driver:
+  name: default
+
+platforms:
+  - name: molecule-debian-11
+    image: debian-11
+  - name: molecule-debian-12
+    image: debian-12
+
+provisioner:
+  name: ansible
+  connection_options:
+    ansible_ssh_common_args: "-F molecule-ssh_config -o StrictHostKeychecking=no"
+
+verifier:
+  name: ansible
+
+scenario:
+  name: default
+  test_sequence:
+    - destroy
+    - create
+    - converge
+    - verify
+    - destroy
