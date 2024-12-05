@@ -7,7 +7,7 @@ label_selector: app=exampleapp
 
 groups:
   webserver: "'webserver' in (labels|list)"
-  database: "'database' in (labels|list)"
+  database: "name.startswith('db')"
 
 compose:
   ansible_port: 22
