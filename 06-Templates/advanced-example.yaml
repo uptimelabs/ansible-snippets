@@ -21,8 +21,8 @@ interfaces:
 
   - name: wlp1s0
     ipv4:
-      wpa-ssid: Guest-Wifi
-      wpa-psk: abc123
+      wpa_ssid: Guest-Wifi
+      wpa_psk: abc123
       address:
         - ip: dhcp
 
