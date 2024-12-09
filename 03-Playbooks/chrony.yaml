@@ -9,11 +9,14 @@
         name:
           - chrony
 
-    - systemd:
+    - name: Service
+      systemd:
          # ...
 
-    - copy:
+    - name: Configfile
+      copy:
          # ...
 
-    - restart:
+    - Name: Restart
+      systemd:
          # ...
