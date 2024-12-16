@@ -17,6 +17,6 @@
       copy:
          # ...
 
-    - Name: Restart
+    - name: Restart
       systemd:
          # ...
