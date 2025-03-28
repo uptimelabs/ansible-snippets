@@ -1,4 +1,6 @@
+
 {{ hostname | lower }}
+{{ datacenter_city | capitalize }}
 {{ nonexistent_var | default(5) }}
 {{ text | b64encode }}
 

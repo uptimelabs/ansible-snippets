@@ -1,0 +1,15 @@
+
+{% if inventory_hostname == "web01" %}
+  A webserver!
+{% else %}
+  No webserver.
+{% endif %}
+
+
+{% if server_type is defined and server_type == "webserver" %}
+  Server is a webserver!
+{% elif server_type is defined %}
+  Server is not a webserver!
+{% else %}
+  Server is a unknown type.
+{% endif %}

@@ -1,5 +1,7 @@
+
 # /etc/resolv.conf
 
 nameserver {{ nameserver_google }}
 nameserver {{ nameserver.cloudflare }}
-nameserver {{ nameserver.telekom[0] }}
+nameserver {{ nameserver["quad9"] }}
+nameserver {{ namserver.telekom[0] }}
