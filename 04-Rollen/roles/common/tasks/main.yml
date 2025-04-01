@@ -4,6 +4,5 @@
 
 # apt update + apt upgrade ausführen
 
-# -> users.yaml
-# -> networking.yaml
- 
+# -> users.yaml einbinden
+# -> networking.yaml einbinden
