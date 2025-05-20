@@ -3,5 +3,23 @@
 - name: Ping Windows
   hosts: windows
   tasks:
-    - name: Ping!
+    - name: "Connection: Ping!"
       win_ping:
+
+    - name: "Updates: Security"
+      ansible.windows.win_updates:
+        category_names:
+          - SecurityUpdates
+        reboot: true
+
+    - name: "Updates: Critical"
+      ansible.windows.win_updates:
+        category_names:
+          - CriticalUpdates
+        reboot: true
+
+    - name: "Updates: Rollups"
+      ansible.windows.win_updates:
+        category_names:
+          - UpdateRollups
+        reboot: true
