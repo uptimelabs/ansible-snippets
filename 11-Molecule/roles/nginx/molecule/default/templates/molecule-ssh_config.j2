@@ -2,5 +2,5 @@
 Host {{ host.hcloud_server.name }}
     HostName {{ host.hcloud_server.ipv4_address }}
     User root
-    IdentityFile ~/.ssh/< --- SSH Key --- >
+    IdentityFile ~/.ssh/id_rsa
 {% endfor %}

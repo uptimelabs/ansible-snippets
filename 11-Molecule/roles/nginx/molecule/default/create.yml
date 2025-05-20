@@ -2,10 +2,11 @@
 
 - name: Create
   hosts: localhost
+  gather_facts: false
   connection: local
   serial: 1
   tasks:
-    - name: Create Servers
+    - name: Setup Servers
       hetzner.hcloud.server:
         name: "{{ item.name }}"
         state: present
@@ -13,8 +14,8 @@
         image: "{{ item.image }}"
         location: nbg1
         ssh_keys:
-          - "< --- SSH Key --- >"
-        api_token: "< --- API-Key --- >"
+          - "<-- SSH-Key -->"
+        api_token: "<-- Token -->"
       register: create_server
       loop: "{{ molecule_yml.platforms }}"
 

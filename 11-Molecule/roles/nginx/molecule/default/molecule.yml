@@ -11,6 +11,8 @@ platforms:
 
 provisioner:
   name: ansible
+  env:
+    ANSIBLE_ROLES_PATH: ../../../../roles/
   connection_options:
     ansible_ssh_common_args: "-F molecule-ssh_config -o StrictHostKeychecking=no"
 

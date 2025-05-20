@@ -1,7 +1,7 @@
 ---
 
-- name: Install Webservers
-  hosts: all
+- name: Install NGINX
+  hosts: webserver
   tasks:
     - name: NGINX
       roles:
