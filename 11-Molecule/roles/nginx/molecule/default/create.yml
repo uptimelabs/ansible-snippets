@@ -6,6 +6,18 @@
   connection: local
   serial: 1
   tasks:
+    - name: Generate SSH-Key
+      community.crypto.openssh_keypair:
+        type: ed25519
+        path: /root/.ssh/molecule
+
+    - name: Push SSH-Key
+      hetzner.hcloud.ssh_key:
+        name: "molecule-{{ planet }}"
+        state: present
+        public_key: "{{ lookup('file', '/root/.ssh/molecule.pub') }}"
+        api_token: "{{ token }}"
+
     - name: Setup Servers
       hetzner.hcloud.server:
         name: "{{ item.name }}"
@@ -14,8 +26,8 @@
         image: "{{ item.image }}"
         location: nbg1
         ssh_keys:
-          - "<-- SSH-Key -->"
-        api_token: "<-- Token -->"
+          - "molecule-{{ planet }}"
+        api_token: "{{ token }}"
       register: create_server
       loop: "{{ molecule_yml.platforms }}"
 

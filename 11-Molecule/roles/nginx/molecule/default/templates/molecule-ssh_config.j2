@@ -2,5 +2,5 @@
 Host {{ host.hcloud_server.name }}
     HostName {{ host.hcloud_server.ipv4_address }}
     User root
-    IdentityFile ~/.ssh/id_rsa
+    IdentityFile /root/.ssh/molecule
 {% endfor %}

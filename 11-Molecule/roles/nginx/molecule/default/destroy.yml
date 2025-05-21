@@ -10,5 +10,11 @@
       hetzner.hcloud.server:
         name: "{{ item.name }}"
         state: absent
-        api_token: "<-- Token -->"
+        api_token: "{{ token }}"
       loop: "{{ molecule_yml.platforms }}"
+
+    - name: Remove SSH-Key
+      hetzner.hcloud.ssh_key:
+        name: "molecule-{{ planet }}"
+        state: absent
+        api_token: "{{ token }}"
