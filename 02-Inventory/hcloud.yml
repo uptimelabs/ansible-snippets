@@ -6,7 +6,7 @@ token: < --- API-Key --- >
 label_selector: app=exampleapp
 
 groups:
-  webserver: "'webserver' in (labels|list)"
+  webserver: "'webserver' in (hcloud_labels|list)"
   database: "name.startswith('db')"
 
 compose:
