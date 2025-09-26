@@ -4,10 +4,10 @@ driver:
   name: default
 
 platforms:
-  - name: molecule-<-- Planet -->-debian-11
-    image: debian-11
   - name: molecule-<-- Planet -->-debian-12
     image: debian-12
+  - name: molecule-<-- Planet -->-debian-13
+    image: debian-13
 
 provisioner:
   name: ansible
