@@ -1,0 +1,13 @@
+---
+
+- name: Use Ansible on RouterOS
+  hosts: mikrotik
+  tasks:
+    - name: Get Interfaces
+      community.routeros.command:
+        commands: /ip address print
+      register: routeros_interfaces
+
+    - name: Print Interfaces
+      debug:
+        var: routeros_interfaces
