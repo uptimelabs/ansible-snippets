@@ -6,6 +6,12 @@
     - name: "Connection: Ping!"
       win_ping:
 
+    - name: "Updates: Signatures"
+      ansible.windows.win_updates:
+        category_names:
+          - "Definition Updates"
+        state: installed
+
     - name: "Updates: Security"
       ansible.windows.win_updates:
         category_names:
@@ -23,3 +29,34 @@
         category_names:
           - UpdateRollups
         reboot: true
+
+   - name: "Updates: List"
+     ansible.windows.win_updates:
+       category_names: '*'
+       state: installed
+     register: win_updates
+     when: win_updates.found_update_count > 0
+
+   - name: "Install apache-httpd"
+     chocolatey.chocolatey.win_chocolatey:
+       name: apache-httpd
+       version: '2.4.55'
+       state: present
+
+   - name: "Firewall: Open 8080/tcp"
+     community.windows.win_firewall_rule:
+       enabled: true
+       name: Webserver
+       localport: 8080
+       action: allow
+       direction: in
+       protocol: tcp
+       state: present
+
+   - name: "Reboot"
+     ansible.windows.win_reboot:
+
+   - name: "Reboot"
+     win_command: shutdown.exe /s /f /t 5
+     async: 30
+     poll: 0
